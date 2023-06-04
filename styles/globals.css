@@ -2,26 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    @apply bg-slate-100/0 font-[Bellota];
   }
 }
+@layer components {
+  .card {
+    @apply flex flex-col items-center justify-center p-5 mb-5 border-[.5px] rounded-lg shadow-md;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .btn-primary {
+    @apply px-4 py-2 mt-3 mb-3 text-white transition-all bg-blue-500 rounded-lg shadow outline-none hover:bg-blue-400 active:bg-blue-600;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply w-full p-2 mt-2 border rounded outline-none ring-blue-500 focus:ring;
+  }
 }
